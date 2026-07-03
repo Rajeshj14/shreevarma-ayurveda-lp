@@ -106,7 +106,7 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-[#241c18]">
+    <footer id="contact" className="scroll-mt-24 bg-white text-[#241c18]">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:px-10">
         <h2 className="text-center text-xl font-extrabold sm:text-left">
           Contact Info

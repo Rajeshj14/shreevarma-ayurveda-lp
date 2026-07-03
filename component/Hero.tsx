@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section id="overview" className="relative w-full overflow-hidden">
+    <section id="overview" className="relative w-full scroll-mt-24 overflow-hidden">
       {/* Mobile image (hidden on lg+) */}
       <div
         className="sv-animate-top block lg:hidden"

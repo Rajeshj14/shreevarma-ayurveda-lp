@@ -104,7 +104,7 @@ export default function HowItWorks() {
   return (
     <section
       id="process"
-      className="relative overflow-hidden bg-[#f8efe5]"
+      className="relative scroll-mt-24 overflow-hidden bg-[#f8efe5]"
       style={{ backgroundColor: "#f8efe5" }}
     >
       <style>{`

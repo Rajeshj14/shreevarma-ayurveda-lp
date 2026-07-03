@@ -40,7 +40,7 @@ export default function HealingJourney() {
 
         <a
           href="#book"
-          className="mx-auto mt-9 table rounded-full bg-white px-8 py-3.5 text-center text-sm font-extrabold uppercase tracking-[0.12em] text-[#6f3b2f] shadow-[0_18px_34px_rgba(0,0,0,0.2)] transition hover:bg-[#f4d8c3]"
+          className="mx-auto mt-9 flex w-full max-w-[420px] items-center justify-center rounded-full bg-white px-5 py-3.5 text-center text-[12px] font-extrabold uppercase leading-5 tracking-[0.06em] text-[#6f3b2f] shadow-[0_18px_34px_rgba(0,0,0,0.2)] transition hover:bg-[#f4d8c3] sm:table sm:w-auto sm:max-w-none sm:px-8 sm:text-sm sm:leading-normal sm:tracking-[0.12em]"
         >
           Book Your Online Consultation Now
         </a>

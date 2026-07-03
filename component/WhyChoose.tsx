@@ -118,7 +118,7 @@ export default function WhyChoose() {
       <section
         id="why-choose"
         ref={ref}
-        className="relative overflow-hidden bg-[#f8efe5] px-5 py-11 sm:px-8 lg:px-10"
+        className="relative scroll-mt-24 overflow-hidden bg-[#f8efe5] px-5 py-11 sm:px-8 lg:px-10"
       >
         <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6f3b2f]/8" />
         <div className="pointer-events-none absolute -right-28 bottom-8 h-80 w-80 rounded-full bg-[#d8b98f]/20" />

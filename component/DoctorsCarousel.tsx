@@ -104,7 +104,7 @@ export default function DoctorsCarousel() {
   };
 
   return (
-    <section className="overflow-hidden px-4 py-11 sm:px-8 sm:py-16 lg:px-10">
+    <section id="doctors" className="scroll-mt-24 overflow-hidden px-4 py-11 sm:px-8 sm:py-16 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="sv-animate-top mx-auto mb-10 max-w-3xl text-center sm:mb-12">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#6f3b2f] sm:text-sm sm:tracking-[0.22em]">

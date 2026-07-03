@@ -24,6 +24,10 @@ body {
   font-family: var(--font-family);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @keyframes svSlideFromLeft {
   0% {
     opacity: 0;

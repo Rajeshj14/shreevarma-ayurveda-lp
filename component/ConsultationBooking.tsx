@@ -66,15 +66,55 @@ const inputClass =
 export default function ConsultationBooking() {
   const router = useRouter();
   const [showAllReasons, setShowAllReasons] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const visibleReasons = showAllReasons ? chooseReasons : chooseReasons.slice(0, 4);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push("/thank-you");
+    setSubmitError("");
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      source: "Online Consultation Form",
+      name: String(formData.get("name") || ""),
+      phone: String(formData.get("phone") || ""),
+      concern: String(formData.get("concern") || ""),
+      description: String(formData.get("description") || ""),
+      pageUrl: window.location.href,
+    };
+
+    try {
+      const response = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = (await response.json()) as {
+        success?: boolean;
+        error?: string;
+      };
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Unable to submit the form");
+      }
+
+      router.push("/thank-you");
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Unable to submit the form. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="book" className="px-4 py-11 sm:px-8 sm:py-14 lg:px-10">
+    <section id="book" className="scroll-mt-24 px-4 py-11 sm:px-8 sm:py-14 lg:px-10">
       <div className="sv-animate-top mx-auto mb-7 max-w-3xl text-center sm:mb-8">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#6f3b2f] sm:text-sm sm:tracking-[0.2em]">
           Why Choose
@@ -180,10 +220,17 @@ export default function ConsultationBooking() {
 
           <button
             type="submit"
-            className="mt-6 w-full rounded-full bg-[#6f3b2f] px-5 py-3.5 text-sm font-extrabold uppercase tracking-[0.08em] text-white shadow-[0_12px_24px_rgba(111,59,47,0.22)] transition hover:bg-[#573026] sm:px-6 sm:tracking-[0.12em]"
+            disabled={isSubmitting}
+            className="mt-6 w-full rounded-full bg-[#6f3b2f] px-5 py-3.5 text-sm font-extrabold uppercase tracking-[0.08em] text-white shadow-[0_12px_24px_rgba(111,59,47,0.22)] transition hover:bg-[#573026] disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:tracking-[0.12em]"
           >
-            Book Appointment
+            {isSubmitting ? "Submitting..." : "Book Appointment"}
           </button>
+
+          {submitError && (
+            <p className="mt-3 text-center text-sm font-semibold text-red-700">
+              {submitError}
+            </p>
+          )}
         </form>
 
         <div className="sv-animate-right sv-delay-2 rounded-lg border border-[#e8dac8] bg-[#fbf6ee] p-5 shadow-[0_18px_42px_rgba(66,45,32,0.08)] sm:p-8">
