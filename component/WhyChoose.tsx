@@ -122,8 +122,8 @@ export default function WhyChoose() {
           </h2>
 
           <div className="relative mt-10 overflow-hidden pb-2">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-14 bg-gradient-to-r from-[#f8efe5] via-[#f8efe5]/85 to-transparent shadow-[18px_0_34px_rgba(66,45,32,0.16)] sm:w-24" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-14 bg-gradient-to-l from-[#f8efe5] via-[#f8efe5]/85 to-transparent shadow-[-18px_0_34px_rgba(66,45,32,0.16)] sm:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-8 bg-gradient-to-r from-[#f8efe5] via-[#f8efe5]/55 to-transparent shadow-[8px_0_18px_rgba(66,45,32,0.08)] sm:w-24 sm:via-[#f8efe5]/85 sm:shadow-[18px_0_34px_rgba(66,45,32,0.16)]" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-8 bg-gradient-to-l from-[#f8efe5] via-[#f8efe5]/55 to-transparent shadow-[-8px_0_18px_rgba(66,45,32,0.08)] sm:w-24 sm:via-[#f8efe5]/85 sm:shadow-[-18px_0_34px_rgba(66,45,32,0.16)]" />
             <div className="flex w-max gap-5 [animation:shreevarmaReasonsSlide_44s_linear_infinite] hover:[animation-play-state:paused] max-sm:[animation-duration:72s]">
               {[...reasons, ...reasons].map((reason, index) => (
                 <article

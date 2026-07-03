@@ -80,7 +80,7 @@ export default function ConsultationBooking() {
   };
 
   return (
-    <section id="book" className="scroll-mt-24 px-4 py-11 sm:px-8 sm:py-8 lg:mb-6 lg:px-10">
+    <section className="scroll-mt-24 px-4 py-11 sm:px-8 sm:py-8 lg:mb-6 lg:px-10">
       <div className="sv-animate-top mx-auto mb-7 max-w-3xl text-center sm:mb-8">
         <h2 className="mt-3 text-2xl font-extrabold leading-tight text-[#241c18] sm:text-5xl">
           Book Your Ayurveda <span className="ml-2 text-[#6f3b2f]">Consultation</span> 
@@ -91,7 +91,7 @@ export default function ConsultationBooking() {
         </p>
       </div>
 
-      <div className="mx-auto grid max-w-6xl items-stretch gap-4 sm:gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div  className="mx-auto grid max-w-6xl items-stretch gap-4 sm:gap-6 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="sv-animate-left sv-delay-2 flex h-full flex-col rounded-lg border border-[#e8dac8] bg-[#6f3b2f] p-5 text-white shadow-[0_18px_42px_rgba(66,45,32,0.12)] sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#f3d7bd] sm:text-sm sm:tracking-[0.2em]">
             Online Consultation
@@ -111,7 +111,7 @@ export default function ConsultationBooking() {
             ))}
           </ul>
 
-          <div className="mt-auto rounded-lg border border-white/18 bg-white/10 p-4">
+          <div  className="max-sm:mt-5 mt-auto rounded-lg border border-white/18 bg-white/10 p-4">
             <p className="text-sm font-bold text-[#f8e8d8]">
               Personal Ayurveda and Siddha guidance from certified doctors,
               wherever you are.
@@ -119,7 +119,7 @@ export default function ConsultationBooking() {
           </div>
         </div>
 
-        <form
+        <form  id="book"
           onSubmit={handleSubmit}
           className="sv-animate-bottom sv-delay-3 h-full rounded-lg border border-[#e8dac8] bg-white p-5 shadow-[0_18px_42px_rgba(66,45,32,0.08)] sm:p-8"
         >
@@ -204,7 +204,7 @@ export default function ConsultationBooking() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-6 flex justify-center rounded-full bg-[#6f3b2f] px-5 py-3.5 text-sm font-extrabold uppercase tracking-[0.08em] text-white shadow-[0_12px_24px_rgba(111,59,47,0.22)] transition hover:bg-[#573026] disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:tracking-[0.12em]"
+            className="mx-auto mt-6 flex w-full max-w-[300px] justify-center rounded-full bg-[#6f3b2f] px-5 py-3.5 text-sm font-extrabold uppercase tracking-[0.08em] text-white shadow-[0_12px_24px_rgba(111,59,47,0.22)] transition hover:bg-[#573026] disabled:cursor-not-allowed disabled:opacity-70 sm:max-w-[360px] sm:px-6 sm:tracking-[0.12em]"
           >
             {isSubmitting ? "Submitting..." : "Book Appointment"}
           </button>

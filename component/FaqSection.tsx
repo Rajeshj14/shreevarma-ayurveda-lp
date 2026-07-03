@@ -120,7 +120,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(1);
 
   return (
-    <section id="faq" className="scroll-mt-24 px-4 py-11 sm:px-8 sm:py-14 lg:px-10">
+    <section id="faq" className="scroll-mt-24 overflow-hidden px-4 py-11 sm:px-8 sm:py-14 lg:px-10">
       <div className="sv-animate-top mx-auto mb-7 max-w-3xl text-center sm:mb-10">
         <h2 className="text-2xl font-extrabold leading-tight text-[#241c18] sm:text-5xl">
           Why Choose Shreevarma{" "}
@@ -140,7 +140,7 @@ export default function FaqSection() {
             />
           </div>
 
-          <div className="absolute -right-5 -top-5 h-24 w-24 sm:-right-6 sm:-top-6 sm:h-28 sm:w-28">
+          <div className="absolute -right-4 -top-5 h-24 w-24 sm:-right-6 sm:-top-6 sm:h-28 sm:w-28">
             <svg
               viewBox="0 0 100 100"
               className="h-full w-full [animation:spin_14s_linear_infinite]"
