@@ -9,6 +9,7 @@ const HEADERS = [
   'Source',
   'Name',
   'Phone',
+  'Email',
   'Concern',
   'Description',
   'URL',
@@ -21,6 +22,7 @@ type SubmissionBody = {
   source: string;
   name: string;
   phone: string;
+  email: string;
   concern: string;
   description: string;
   pageUrl: string;
@@ -42,6 +44,7 @@ function normalizeSubmission(body: Record<string, unknown>): SubmissionBody {
     source: toText(body.source) || 'Consultation Modal',
     name: toText(body.name),
     phone: toText(body.phone),
+    email: toText(body.email),
     concern: toText(body.concern) || toText(body.condition),
     description: toText(body.description),
     pageUrl: toText(body.pageUrl),
@@ -89,6 +92,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body.source,
     body.name,
     body.phone,
+    body.email,
     body.concern,
     body.description,
     body.pageUrl,
@@ -103,6 +107,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
       source: body.source,
       name: body.name,
       phone: body.phone,
+      email: body.email,
       concern: body.concern,
       condition: body.concern,
       description: body.description,
@@ -161,11 +166,13 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
     phone,
     name: body.name,
   };
+  if (body.email) fields.email = body.email;
 
   const details = [
     `Form Name: ${body.source || 'Website'}`,
     `Name: ${body.name || 'Not specified'}`,
     `Phone: ${body.phone || 'Not specified'}`,
+    `Email: ${body.email || 'Not specified'}`,
     `Concern: ${body.concern || 'Not specified'}`,
     `Description: ${body.description || 'Not specified'}`,
     `URL: ${body.pageUrl || 'Not specified'}`,
@@ -178,6 +185,7 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
       { type: 'SYSTEM_NOTE', text: `Form Name: ${body.source || 'Website'}` },
       { type: 'SYSTEM_NOTE', text: `Name: ${body.name || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Phone: ${body.phone || 'Not specified'}` },
+      { type: 'SYSTEM_NOTE', text: `Email: ${body.email || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Concern: ${body.concern || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Description: ${body.description || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `URL: ${body.pageUrl || 'Not specified'}` },
@@ -254,9 +262,9 @@ export async function POST(req: NextRequest) {
     const rawBody = await req.json();
     const body = normalizeSubmission(rawBody);
 
-    if (!body.name || !body.phone || !body.concern) {
+    if (!body.name || !body.phone || !body.email || !body.concern) {
       return NextResponse.json(
-        { success: false, error: 'Name, phone, and concern are required' },
+        { success: false, error: 'Name, phone, email, and concern are required' },
         { status: 400 },
       );
     }
@@ -269,6 +277,7 @@ export async function POST(req: NextRequest) {
       body.source,
       body.name,
       body.phone,
+      body.email,
       body.concern,
       body.description,
       body.pageUrl,

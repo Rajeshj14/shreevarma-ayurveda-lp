@@ -114,10 +114,10 @@ export default function HowItWorks() {
         }
       `}</style>
       <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.04] [animation:shreevarmaProcessBgZoom_18s_ease-in-out_infinite]"
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.18] [animation:shreevarmaProcessBgZoom_18s_ease-in-out_infinite]"
         style={{ backgroundImage: "url('/bg-img.png')" }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-[#f8efe5]/70" />
+      <div className="pointer-events-none absolute inset-0 bg-[#f8efe5]/52" />
       <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6f3b2f]/8" />
       <div className="pointer-events-none absolute -right-28 bottom-8 h-80 w-80 rounded-full bg-[#d8b98f]/20" />
 
@@ -126,6 +126,10 @@ export default function HowItWorks() {
           <h2 className="text-[24px] font-extrabold leading-[1.1] tracking-tight text-[#241c18] sm:text-[28px] md:text-[33px] lg:text-[40px] xl:text-[48px]">
             How It <span className="text-[#6f3b2f]">Works</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-[14px] font-medium leading-6 text-[#6b625b] sm:text-[16px] sm:leading-7">
+            Book your consultation, choose a doctor, connect securely online,
+            and receive a personalized Ayurveda or Siddha care plan.
+          </p>
         </div>
 
         <div className="relative hidden lg:block" style={{ height: `${TOTAL_H}px` }}>

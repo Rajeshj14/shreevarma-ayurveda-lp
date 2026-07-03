@@ -8,85 +8,73 @@ const reasons = [
     title: "Joint & Body Pain",
     description:
       "Bone and joint diseases affect the skeletal system and the tissues that connect, support, and protect the body.",
-    image: "/Bone-Joints.webp",
-    facts: ["Osteoarthritis", "Rheumatoid Arthritis", "Osteoporosis"],
+    image: "/image-1.webp",
   },
   {
     title: "Digestive Disorders",
     description:
       "Support for acidity, bloating, constipation, appetite changes, and gut discomfort with personalized care.",
-    image: "/Digestive-Health.webp",
-    facts: ["Acidity", "Constipation", "Bloating"],
+    image: "/image-2.webp",
   },
   {
     title: "Skin Problems",
     description:
       "Traditional care for recurring skin concerns with focus on internal balance and lifestyle triggers.",
-    image: "/Skin-Dieses.webp",
-    facts: ["Acne", "Eczema", "Psoriasis"],
+    image: "/image-3.webp",
   },
   {
     title: "Hair Fall & Hair Thinning",
     description:
       "Holistic consultation for hair fall patterns, scalp health, nutrition, and stress-related thinning.",
-    image: "/Nervous-Disorder.webp",
-    facts: ["Hair Fall", "Dandruff", "Thinning"],
+    image: "/image-4.webp",
   },
   {
     title: "Hormonal Imbalance",
     description:
       "Ayurvedic assessment for cycle changes, mood shifts, weight concerns, and energy imbalance.",
-    image: "/Blood-Disorder.webp",
-    facts: ["Irregular Cycles", "Fatigue", "Mood Swings"],
+    image: "/image-9.png",
   },
   {
     title: "Women's Health Concerns",
     description:
       "Focused support for women's wellness across menstrual health, lifestyle concerns, and recovery.",
-    image: "/Women-Health.webp",
-    facts: ["Period Pain", "PCOS", "Menopause"],
+    image: "/image-6.webp",
   },
   {
     title: "Men's Wellness",
     description:
       "Confidential consultation for vitality, stress, sleep, digestion, and preventive health support.",
-    image: "/male-Health.webp",
-    facts: ["Vitality", "Stress", "Stamina"],
+    image: "/image-7.webp",
   },
   {
     title: "Diabetes Support",
     description:
       "Lifestyle-led support for sugar control, metabolism, digestion, and long-term wellness routines.",
-    image: "/Diabetes.webp",
-    facts: ["Sugar Control", "Metabolism", "Diet Care"],
+    image: "/image-8.webp",
   },
   {
     title: "Stress & Sleep Disorders",
     description:
       "Calming care for stress, disturbed sleep, low energy, and nervous system imbalance.",
-    image: "/Mental-Health.webp",
-    facts: ["Stress", "Insomnia", "Anxiety"],
+    image: "/image-11.png",
   },
   {
     title: "Weight Management",
     description:
       "Personalized plans for healthy weight, digestion, metabolism, routine correction, and food habits.",
-    image: "/Obesity.webp",
-    facts: ["Obesity", "Cravings", "Metabolism"],
+    image: "/image-10.webp",
   },
   {
     title: "PCOS/PCOD",
     description:
       "Support for irregular periods, weight changes, acne, hair concerns, and hormonal balance.",
-    image: "/Women-Health.webp",
-    facts: ["Irregular Periods", "Acne", "Weight Gain"],
+    image: "/image-12.png",
   },
   {
     title: "Thyroid Support",
     description:
       "Guidance for fatigue, weight changes, hair fall, mood changes, and metabolism support.",
-    image: "/Thyroid.webp",
-    facts: ["Fatigue", "Weight Changes", "Hair Fall"],
+    image: "/image-5.webp",
   },
 ];
 
@@ -133,7 +121,9 @@ export default function WhyChoose() {
             <span className="ml-2 text-[#6f3b2f]">Commonly Treat</span>
           </h2>
 
-          <div className="mt-10 overflow-hidden pb-2">
+          <div className="relative mt-10 overflow-hidden pb-2">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-14 bg-gradient-to-r from-[#f8efe5] via-[#f8efe5]/85 to-transparent shadow-[18px_0_34px_rgba(66,45,32,0.16)] sm:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-14 bg-gradient-to-l from-[#f8efe5] via-[#f8efe5]/85 to-transparent shadow-[-18px_0_34px_rgba(66,45,32,0.16)] sm:w-24" />
             <div className="flex w-max gap-5 [animation:shreevarmaReasonsSlide_44s_linear_infinite] hover:[animation-play-state:paused] max-sm:[animation-duration:72s]">
               {[...reasons, ...reasons].map((reason, index) => (
                 <article
@@ -156,27 +146,13 @@ export default function WhyChoose() {
                     className="z-0 object-cover transition duration-500 hover:scale-105"
                   />
                   <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#241c18]/95 via-[#241c18]/68 to-[#241c18]/20" />
-                  <div className="relative z-10 rounded-lg border border-white/18 bg-[#241c18]/58 p-4 shadow-[0_14px_34px_rgba(0,0,0,0.22)] backdrop-blur-[2px]">
-                    <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#f4d8c3]">
-                      Quick Facts
-                    </p>
-                    <h3 className="text-2xl font-extrabold leading-tight text-white">
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-extrabold leading-tight text-white drop-shadow-[0_3px_12px_rgba(0,0,0,0.65)]">
                       {reason.title}
                     </h3>
-                    <p className="mt-3 text-sm font-medium leading-6 text-white/92">
+                    <p className="mt-3 text-sm font-semibold leading-6 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.78)]">
                       {reason.description}
                     </p>
-
-                    <div className="mt-5 grid grid-cols-3 gap-2">
-                      {reason.facts.map((fact) => (
-                        <div
-                          key={fact}
-                          className="flex min-h-14 items-center justify-center rounded-md border border-white/30 bg-white/22 px-2 text-center text-[11px] font-extrabold leading-tight text-white shadow-sm backdrop-blur-sm"
-                        >
-                          {fact}
-                        </div>
-                      ))}
-                    </div>
                   </div>
                 </article>
               ))}

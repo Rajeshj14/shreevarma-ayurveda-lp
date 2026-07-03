@@ -1,6 +1,7 @@
 
 import ConsultationBooking from "@/component/ConsultationBooking";
 import DoctorsCarousel from "@/component/DoctorsCarousel";
+import FaqSection from "@/component/FaqSection";
 import Footer from "@/component/Footer";
 import HealingJourney from "@/component/HealingJourney";
 import HealingJourneyAnimated from "@/component/HealingJourneyAnimated";
@@ -16,6 +17,7 @@ export default function Home() {
       <HeroSection />
       <WhyChoose />
       <ConsultationBooking />
+      <FaqSection />
       <HowItWorks />
       <DoctorsCarousel />
       <HealingJourney />
